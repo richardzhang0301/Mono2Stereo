@@ -1,4 +1,4 @@
-# src/interface/interface.py
+# src/inference/inference.py
 
 import torch
 import torchaudio
@@ -15,7 +15,8 @@ def convert_mono_to_stereo(input_mono_path, output_stereo_path):
     # Load the trained model
     model = UNetAudio()
     try:
-        model.load_state_dict(torch.load(config.MODEL_SAVE_PATH, map_location=config.DEVICE))
+        # Set weights_only=True for enhanced security
+        model.load_state_dict(torch.load(config.MODEL_SAVE_PATH, map_location=config.DEVICE, weights_only=True))
         model.to(config.DEVICE)
         model.eval()
     except FileNotFoundError:

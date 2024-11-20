@@ -27,7 +27,7 @@ It's recommended to use a virtual environment to manage dependencies:
 Make sure you have python >= 3.9 and <= 3.10
 
 ```bash
-pip install .
+pip install -r requirements.txt
 ```
 
 ### 🪟 Additional Step for Windows Users
@@ -62,3 +62,20 @@ A sample `config.json` is included in the root directory. Customize it to specif
 
 ### 🎚️ Prepare the training dataset
 
+Put your dataset audio into "original_dataset_dir" folder (support .wav, .m4a, .mp3, .wma, .flac, .ape), and run:
+```bash
+python preprocess.py
+```
+The preprocessed mono and stereo dataset audio files will be generated at "mono_dir" folder and "stereo_dir" folder.
+
+### 🤗 Train the model using the prepared dataset
+
+```bash
+python train.py
+```
+
+### 🎶 Inference the stereo audio file from a mono audio file using trained model
+
+```bash
+python inference.py --input [input audio file] --output [output audio file]"
+```
