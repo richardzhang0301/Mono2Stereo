@@ -1,0 +1,12 @@
+{
+    "sample_rate": 48000,
+    "chunk_size": 240000,
+    "num_epochs": 50,
+    "batch_size": 4,
+    "learning_rate": 0.001,
+    "original_dataset_dir": "",
+    "mono_dir": "",
+    "stereo_dir": "",
+    "model_save_path": "model/unet_audio_model.pth",
+    "device": "cuda"
+}
